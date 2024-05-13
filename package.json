@@ -7,7 +7,7 @@
     "prepare": "tsc"
   },
   "keywords": [],
-  "author": "Vorlias",
+  "author": "Boogle",
   "license": "MOT",
   "dependencies": {
     "chalk": "^4.1.1",
