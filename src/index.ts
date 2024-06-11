@@ -37,18 +37,10 @@ export default function transform(program: ts.Program, userConfiguration: Transf
 	
 	return (context: ts.TransformationContext): ((file: ts.SourceFile) => ts.Node) => {
 		logger.infoIfVerbose("Starting transformation process");
-		// log the context & file
-		logger.infoIfVerbose("Context: ", context);
-		logger.infoIfVerbose("File: ", program.getSourceFiles().map((file) => file.fileName));
-		
+	
 		const state = new TransformState(program, context, userConfiguration, logger);
 
-		if (!state.symbolProvider.moduleFile) {
-			logger.warnIfVerbose("Skipped GUID transformer");
-			return file => file;
-		} else {
-			logger.infoIfVerbose("Loaded GUID transformer");
-		}
+		
 
 		return (file: ts.SourceFile) => {
 			let printFile = false;
