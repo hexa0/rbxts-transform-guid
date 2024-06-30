@@ -1,6 +1,6 @@
 GUID
 =====
-Hi Boogle here, I changed some stuff regarding this so that it could generate consisten UUID's which is useful for stuff like item IDs and what not.
+Hi Boogle here, I changed some stuff regarding this so that it could generate consistent UUID's which is useful for stuff like item IDs and what not.
 
 Compile-time GUID generation library. This can be used for networking remote purposes, or for general compile-time hash requirements.
 
