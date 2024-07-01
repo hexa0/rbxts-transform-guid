@@ -16,6 +16,8 @@ export const enum UUID {
 }
 ```
 
+(99% of this was written by ChatGPT, so it's probably ASS! But it does what I need, and without too much issue)
+
 The rest of this readme is the same from the other project
 
 ## Usage
