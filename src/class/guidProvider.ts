@@ -57,6 +57,10 @@ export class GUIDProvider {
 			continue;
 		}
       if (tag.tagName.text === "uuid") {
+		if (!tag.tagName) {
+			continue;
+		}
+		
         if (
           typeof tag.comment === "string" &&
           ["hashids", "guidv4", "string", "consistent"].includes(tag.comment)
