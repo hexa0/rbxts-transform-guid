@@ -53,6 +53,9 @@ export class GUIDProvider {
   ): UUIDGenerationType | undefined {
     const docTags = ts.getJSDocTags(enumerable);
     for (const tag of docTags) {
+		if (!tag.tagName) {
+			continue;
+		}
       if (tag.tagName.text === "uuid") {
         if (
           typeof tag.comment === "string" &&
