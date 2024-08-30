@@ -41,7 +41,7 @@ export class TransformState {
 		this.typeChecker = program.getTypeChecker();
 		this.symbolProvider = new SymbolProvider(this);
 		this.guidProvider = new GUIDProvider(this);
-		this.initMacros();
+		// this.initMacros();
 	}
 
 	private initMacros() {
