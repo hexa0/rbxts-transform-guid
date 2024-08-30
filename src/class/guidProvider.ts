@@ -57,7 +57,7 @@ export class GUIDProvider {
 	const docTags = ts.getJSDocTags(enumerable);
 	for (const tag of docTags) {
 	  if (!tag.tagName) {
-		this.transformState.logger.infoIfVerbose(`No tag name found in ${enumerable.name}`); // Add this line to continue
+		this.transformState.logger.infoIfVerbose(`No tag name found in ${enumerable.name.text}`); // Add this line to continue
 		continue
 	  }
 	  // Check if tagName is defined before accessing its text property
