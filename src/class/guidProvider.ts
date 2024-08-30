@@ -56,6 +56,10 @@ export class GUIDProvider {
   ): UUIDGenerationType | undefined {
 	const docTags = ts.getJSDocTags(enumerable);
 	for (const tag of docTags) {
+	  if (!tag.tagName) {
+		this.transformState.logger.infoIfVerbose(`No tag name found in ${enumerable.name}`); // Add this line to continue
+		continue
+	  }
 	  // Check if tagName is defined before accessing its text property
 	  if (tag.tagName && tag.tagName.text === "uuid") {
 		if (
@@ -70,7 +74,7 @@ export class GUIDProvider {
 	}
   
 	// Return undefined explicitly if no matching tag is found
-	return "consistent";
+	return undefined;
   }
 
   public getStringForConstLabel(
@@ -119,7 +123,7 @@ export class GUIDProvider {
               `"${uuidConsistent}"`
             )} for ${chalk.magenta(label)}`
           );
-          return uuidConsistent.replace("-", "");
+          return uuidConsistent;
         default:
           throw new Error(`Unsupported label kind: ${labelKind}`);
       }
