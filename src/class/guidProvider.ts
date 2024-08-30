@@ -33,13 +33,19 @@ function generateGuid() {
 }
 
 function consistentUuid(label: string): string {
-  const hash = createHash("sha256").update(label).digest("hex");
-  // Form the UUID from the hash
-  return `${hash.substring(0, 8)}-${hash.substring(8, 12)}-${hash.substring(
-    12,
-    16
-  )}-${hash.substring(16, 20)}-${hash.substring(20, 32)}`;
-}
+	// Emphasize the common prefix by repeating the beginning of the string
+	const prefix = label.split(' ')[0]; // Get the first word
+	const enhancedLabel = prefix + label; // Prepend the prefix to the label
+	
+	// Create the hash using the enhanced label
+	const hash = createHash("sha256").update(enhancedLabel).digest("hex");
+	
+	// Form the UUID from the hash
+	return `${hash.substring(0, 8)}-${hash.substring(8, 12)}-${hash.substring(
+	  12,
+	  16
+	)}-${hash.substring(16, 20)}-${hash.substring(20, 32)}`;
+  }
 
 export class GUIDProvider {
   private labels = new Map<string, string>();
