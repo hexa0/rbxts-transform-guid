@@ -119,7 +119,7 @@ export class GUIDProvider {
               `"${uuidConsistent}"`
             )} for ${chalk.magenta(label)}`
           );
-          return uuidConsistent;
+          return uuidConsistent.replace("-", "");
         default:
           throw new Error(`Unsupported label kind: ${labelKind}`);
       }
