@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-	  "target": "es2020",                       /* Updated to a more modern ECMAScript target. */
-	  "module": "es2020",                       /* Updated module code generation. */
+	  "target": "es5",                       /* Updated to a more modern ECMAScript target. */
+	  "module": "commonjs",                       /* Updated module code generation. */
 	  "outDir": "out",                          /* Redirect output structure to the directory. */
 	  "rootDir": "src",                         /* Specify the root directory of input files. */
 	  "types": ["@types/node", "ts-expose-internals"],  /* Include necessary type definitions. */
