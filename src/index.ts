@@ -40,7 +40,12 @@ export default function transform(program: ts.Program, userConfiguration: Transf
 	
 		const state = new TransformState(program, context, userConfiguration, logger);
 
-		
+		if (!state.symbolProvider.moduleFile) {
+			logger.warnIfVerbose("Skipped GUID transformer");
+			return file => file;
+		} else {
+			logger.infoIfVerbose("Loaded GUID transformer");
+		}
 
 		return (file: ts.SourceFile) => {
 			let printFile = false;
