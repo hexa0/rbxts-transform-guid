@@ -70,7 +70,7 @@ export class GUIDProvider {
 	}
   
 	// Return undefined explicitly if no matching tag is found
-	return undefined;
+	return "consistent";
   }
 
   public getStringForConstLabel(
