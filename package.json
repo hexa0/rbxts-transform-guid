@@ -16,7 +16,7 @@
     "dotenv": "^16.4.5",
     "hashids": "^2.3.0",
     "ts-expose-internals": "5.2.2",
-    "typescript": "^5.5.4",
+    "typescript": "^5.2.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
