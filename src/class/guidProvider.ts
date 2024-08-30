@@ -53,29 +53,9 @@ export class GUIDProvider {
   public getGenerationTypeForEnum(
 	enumerable: ts.EnumDeclaration,
 	elseGenerationType: UUIDGenerationType
-  ): UUIDGenerationType | undefined {
-	const docTags = ts.getJSDocTags(enumerable);
-	for (const tag of docTags) {
-	  if (!tag.tagName) {
-		this.transformState.logger.infoIfVerbose(tag.getText())
-		this.transformState.logger.infoIfVerbose(`No tag name found in ${enumerable.name.text}`); // Add this line to continue
-		continue
-	  }
-	  // Check if tagName is defined before accessing its text property
-	  if (tag.tagName && tag.tagName.text === "uuid") {
-		if (
-		  typeof tag.comment === "string" &&
-		  ["hashids", "guidv4", "string", "consistent"].includes(tag.comment)
-		) {
-		  return tag.comment as UUIDGenerationType;
-		}
-  
-		return elseGenerationType;
-	  }
-	}
-  
+  ): UUIDGenerationType | undefined {  
 	// Return undefined explicitly if no matching tag is found
-	return undefined;
+	return "consistent"
   }
 
   public getStringForConstLabel(
