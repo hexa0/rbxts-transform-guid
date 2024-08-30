@@ -97,14 +97,14 @@ export class GUIDProvider {
           );
           return uuidHashid;
         case "consistent":
-          const uuidConsistent = consistentUuid(label);
+          const uuidConsistent = consistentUuid(label).replace(/-/g, '').substring(0, 24).padEnd(24, '0');
           this.labels.set(label, uuidConsistent);
           this.transformState.logger.infoIfVerbose(
             `Generate ${chalk.yellow("consistent UUID")} ${chalk.green(
               `"${uuidConsistent}"`
             )} for ${chalk.magenta(label)}`
           );
-          return uuidConsistent.replace("-", "").slice(0, 23);
+          return uuidConsistent
         default:
           throw new Error(`Unsupported label kind: ${labelKind}`);
       }
